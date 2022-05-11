@@ -22,7 +22,7 @@ public class GoogleTest
 {
 	
 	@BeforeAll
-	public void before() {
+	public static void before() {
     	// 保存場所を設定
     	Configuration.reportsFolder = "target/reports";
     	// -Dselenide.reports=test-result/reportsでも設定可能	
@@ -44,8 +44,9 @@ public class GoogleTest
         $$("h3").shouldHave(sizeGreaterThan(1));
         // SelenideTopページが出ること
         $$("h3").get(0).shouldHave(text("Selenide: concise UI tests in Java"));
+        screenshot("02_google_result");
         
         $$("h3").get(0).click();
-        screenshot("02_selenide_top");
+        screenshot("03_selenide_top");
     }
 }
