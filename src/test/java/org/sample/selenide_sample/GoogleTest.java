@@ -13,25 +13,23 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.junit5.ScreenShooterExtension;
 
-/**
- * Simple Selenide Test with PageObjects
- */
+
 @ExtendWith({ScreenShooterExtension.class})
 @DisplayName("Selenide")
 public class GoogleTest
 {
-	
-	@BeforeAll
-	public static void before() {
-    	// 保存場所を設定
-    	Configuration.reportsFolder = "target/reports";
-    	// -Dselenide.reports=test-result/reportsでも設定可能	
-	}
+
+    @BeforeAll
+    public static void before() {
+        // 保存場所を設定
+        Configuration.reportsFolder = "target/reports";
+        // -Dselenide.reports=test-result/reportsでも設定可能
+    }
 
     @Test
     @DisplayName("検索シナリオ")
     public void searchForSelenide() {
-    	
+
         open("https://google.com/");
 
         screenshot("01_google_top");
@@ -45,7 +43,7 @@ public class GoogleTest
         // SelenideTopページが出ること
         $$("h3").get(0).shouldHave(text("Selenide: concise UI tests in Java"));
         screenshot("02_google_result");
-        
+
         $$("h3").get(0).click();
         screenshot("03_selenide_top");
     }

@@ -25,11 +25,11 @@ public class GooglePageObjectTest
     @Test
     @DisplayName("検索シナリオ(PageObject仕様)")
     public void searchForSelenide() {
-    	
-    	
-    	// 保存場所を設定
-    	Configuration.reportsFolder = "target/reports";
-    	// -Dselenide.reports=test-result/reportsでも設定可能
+
+
+        // 保存場所を設定
+        Configuration.reportsFolder = "target/reports";
+        // -Dselenide.reports=test-result/reportsでも設定可能
 
         // Arrange
         open("https://google.com/");
@@ -40,10 +40,15 @@ public class GooglePageObjectTest
 
         // Assert
         GoogleSearchResults results = new GoogleSearchResults();
-        
+
         // 検索結果が1件以上あること
         results.found.shouldHave(sizeGreaterThan(1));
         // SelenideTopページが出ること
         results.getResult(0).shouldHave(text("Selenide: concise UI tests in Java"));
+        screenshot("02_search_result");
+        results.getResult(0).click();
+
+        screenshot("03_selenide_page");
+
     }
 }
