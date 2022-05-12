@@ -12,10 +12,8 @@ Seleniumに比べて
 
 といった特徴がある。
 
-【公式サイト】
-https://selenide.org/
-【SeleniumとSelenideを比較】
-SeleniumとSelenideを比較
+- [公式サイト](https://selenide.org/)
+- [SeleniumとSelenideを比較](SeleniumとSelenideを比較)
 
 ### Selenideでできること
 
@@ -36,3 +34,6 @@ pom.xmlに以下を追加する
  ```
  
 あとは操作処理を追加するのみ！
+
+### 実装について
+各種サンプルコード参照
